@@ -28,7 +28,7 @@ The 1D time-domain audio waveform is mathematically transformed into a 2D spatia
 
 ---
 
-## 🧠 Deep Learning Model Architecture
+## Deep Learning Model Architecture
 
 The core classifier is a custom, deep 2D Convolutional Neural Network specialized in spotting fine vertical phase anomalies, spectral gaps, or boundary artifacts characteristic of AI-cloned audio.
 
@@ -55,7 +55,7 @@ The core classifier is a custom, deep 2D Convolutional Neural Network specialize
 
 ---
 
-## 📊 Performance & Verification Report
+## Performance & Verification Report
 
 Following validation and training convergence over the variable-length Fake-or-Real (FoR) split testing partition, the audited metrics comfortably surpassed all baseline targets:
 
@@ -84,9 +84,21 @@ To test isolated voice samples directly from your terminal, run:
 ```bash
 python predict.py path/to/your_voice_sample.wav
 ```
+---
+
 
 Running the Streamlit Web Application
 ```bash
 streamlit run app.py
 ```
+---
 
+## Website URL
+The url of the deployed website in which you can upload an audio file as input. 
+Returns whether it is Genuine (Human) or
+Deepfake (AI-Generated), along with the
+confidence score.
+
+```bash
+https://deepfakeaudiodetection-uoufmgdtqpfp5hm8vcbpzp.streamlit.app/
+```
