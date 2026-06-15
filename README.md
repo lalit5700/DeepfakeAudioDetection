@@ -60,11 +60,11 @@ The core classifier is a custom, deep 2D Convolutional Neural Network specialize
 Following validation and training convergence over the variable-length Fake-or-Real (FoR) split testing partition, the audited metrics comfortably surpassed all baseline targets:
 
 ### Core Performance Metrics
-* **Overall Test Accuracy:** **89.94%** *(Project Target: $\ge$ 80%)*
-* **Equal Error Rate (EER):** **10.07%** *(Project Target: $\le$ 12%)* — Calculated dynamically using Scipy's optimized **BrentQ root-finding method**, representing the strict operational intersection where FAR equals FRR.
-* **F1-Score Metric:** **90.15%** *(Project Target: $\ge$ 80%)*
-* **Genuine Per-Class Accuracy:** **89.93%** *(Project Target: $\ge$ 75%)*
-* **Deepfake Per-Class Accuracy:** **89.96%** *(Project Target: $\ge$ 75%)*
+* **Overall Test Accuracy:** **89.94%** *(Project Target: >= 80%)*
+* **Equal Error Rate (EER):** **10.07%** *(Project Target: <= 12%)* — Calculated dynamically using Scipy's optimized **BrentQ root-finding method**, representing the strict operational intersection where FAR equals FRR.
+* **F1-Score Metric:** **90.15%** *(Project Target: >= 80%)*
+* **Genuine Per-Class Accuracy:** **89.93%** *(Project Target: >= 75%)*
+* **Deepfake Per-Class Accuracy:** **89.96%** *(Project Target: >= 75%)*
 * **Optimal Decision Boundary Logit:** **0.0002** ($\approx \mathbf{0.5000}$ Sigmoid Probability), validating the mathematical calibration of our classification threshold.
 
 * *The extremely small variance (**0.03%**) between per-class metrics indicates that the network is exceptionally well-balanced and free from majority-class prediction bias.*
