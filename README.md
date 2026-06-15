@@ -20,9 +20,7 @@ The 1D time-domain audio waveform is mathematically transformed into a 2D spatia
 
 1. **Short-Time Fourier Transform (STFT):** Computed using a Hann windowing function with an $N_{\text{fft}}$ window size of $2048$ samples and a hop length of $512$ samples.
 2. **Mel-Scale Filterbank:** The linear power spectrum is mapped onto a Mel-scale filterbank using $128$ distinct frequency bins ($N_{\text{mels}} = 128$) to mimic human auditory perception.
-3. **Power-to-dB Log Scaling:** The raw acoustic power values are compressed into decibels ($\text{dB}$) via log scaling:
-   $$\text{Mel}_{\text{dB}} = 10 \cdot \log_{10}\left(\frac{\text{Mel}_{\text{power}}}{\max(\text{Mel}_{\text{power}})}\right)$$
-4. **Min-Max Normalization:** To prevent gradient saturation across deep network layers, the decibel matrix is normalized strictly between **$[-1, 1]$**.
+3. **Min-Max Normalization:** To prevent gradient saturation across deep network layers, the decibel matrix is normalized strictly between **$[-1, 1]$**.
 
 **Final Feature Input Dimensions:** $\mathbf{X} \in \mathbb{R}^{\text{Batch} \times \text{Channel} \times \text{Freq} \times \text{Time}} \longrightarrow [B \times 1 \times 128 \times 94]$
 
