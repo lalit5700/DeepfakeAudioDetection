@@ -56,7 +56,7 @@ def load_detector_model(model_path='best_deepfake_detector.pth'):
 # --- 3. Streamlit UI Setup ---
 st.set_page_config(page_title="Deepfake Audio Detector", page_icon="🎙️", layout="centered")
 
-st.title("🎙️ AI Deepfake Audio Detection Engine")
+st.title("AI Deepfake Audio Detection Engine")
 st.markdown("Upload any standard `.wav`, `.mp3`, or `.flac` voice sample to evaluate whether the speech is a **Genuine Human Utterance** or an **AI-Generated Deepfake**.")
 st.write("---")
 
