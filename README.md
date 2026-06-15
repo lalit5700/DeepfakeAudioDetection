@@ -79,20 +79,14 @@ Ensure your local environment includes the core operational dependencies. Instal
 pip install streamlit torch librosa numpy scikit-learn
 ```
 
-##Local Standalone Inference Script
+Local Standalone Inference Script
 To test isolated voice samples directly from your terminal, run:
 ```bash
 python predict.py path/to/your_voice_sample.wav
 ```
 
-##Running the Streamlit Web Application
+Running the Streamlit Web Application
 ```bash
 streamlit run app.py
 ```
-
-##Cloud Deployment Configuration
-├── app.py                      # Main UI script file
-├── best_deepfake_detector.pth  # Saved neural network model weights
-├── requirements.txt            # Python library dependency configuration
-└── packages.txt                # Linux audio package dependencies (libsndfile1, ffmpeg)
 
