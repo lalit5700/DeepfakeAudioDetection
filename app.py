@@ -64,13 +64,13 @@ st.write("---")
 model, device = load_detector_model()
 
 if model is None:
-    st.error("❌ Error: `best_deepfake_detector.pth` weight file missing from the root directory. Please upload your model file to continue.")
+    st.error("Error: `best_deepfake_detector.pth` weight file missing from the root directory. Please upload your model file to continue.")
 else:
     # File Uploader Interface Widget
     uploaded_file = st.file_uploader("Drop or choose your audio file sample...", type=["wav", "mp3", "flac"])
 
     if uploaded_file is not None:
-        st.write("### ⚙️ Signal Playback & Audit Analysis")
+        st.write("### Signal Playback & Audit Analysis")
         # Visual playback bar
         st.audio(uploaded_file, format='audio/wav')
         
@@ -111,13 +111,13 @@ else:
                     threshold = 0.5000
                     
                     st.write("---")
-                    st.subheader("📊 System Forensic Verdict")
+                    st.subheader("System Forensic Verdict")
                     
                     if probability >= threshold:
-                        st.error("🚨 **Verdict: DEEPFAKE (AI-Generated Speech)**")
+                        st.error("**Verdict: DEEPFAKE (AI-Generated Speech)**")
                         confidence = probability
                     else:
-                        st.success("✅ **Verdict: GENUINE (Human Speech)**")
+                        st.success("**Verdict: GENUINE (Human Speech)**")
                         confidence = 1.0 - probability
 
                     # Beautiful Confidence Metrics Card
@@ -130,4 +130,4 @@ else:
                         st.text(f"Model Processing Device  : {str(device).upper()}")
 
                 except Exception as e:
-                    st.error(f"❌ Core processing crash: {str(e)}")
+                    st.error(f"Core processing crash: {str(e)}")
