@@ -35,19 +35,19 @@ The core classifier is a custom, deep 2D Convolutional Neural Network specialize
 | Layer Stage | Layer Type | Specifications & Configurations | Output Tensor Shape |
 | :--- | :--- | :--- | :--- |
 | **Input** | Tensor Image | Normalized Mel-Spectrogram Matrix | `[B, 1, 128, 94]` |
-| **Block 1** | 2D Convolution | 32 Filters, Kernel=$3\times3$, Stride=1, Padding=1 | `[B, 32, 128, 94]` |
+| **Block 1** | 2D Convolution | 32 Filters, Kernel=3*3, Stride=1, Padding=1 | `[B, 32, 128, 94]` |
 | | Batch Norm | 2D Batch Normalization (Stability & Speed) | `[B, 32, 128, 94]` |
 | | Activation | ReLU (Rectified Linear Unit) | `[B, 32, 128, 94]` |
-| | Max Pooling | Kernel Size=$2\times2$, Stride=$2\times2$ | `[B, 32, 64, 47]` |
-| **Block 2** | 2D Convolution | 64 Filters, Kernel=$3\times3$, Stride=1, Padding=1 | `[B, 64, 64, 47]` |
+| | Max Pooling | Kernel Size=2*2, Stride=2*2 | `[B, 32, 64, 47]` |
+| **Block 2** | 2D Convolution | 64 Filters, Kernel=3*3, Stride=1, Padding=1 | `[B, 64, 64, 47]` |
 | | Batch Norm | 2D Batch Normalization | `[B, 64, 64, 47]` |
 | | Activation | ReLU | `[B, 64, 64, 47]` |
-| | Max Pooling | Kernel Size=$2\times2$, Stride=$2\times2$ | `[B, 64, 32, 23]` |
+| | Max Pooling | Kernel Size=2*2, Stride=2*2 | `[B, 64, 32, 23]` |
 | **Block 3** | 2D Convolution | 128 Filters, Kernel=$3\times3$, Stride=1, Padding=1 | `[B, 128, 32, 23]` |
 | | Batch Norm | 2D Batch Normalization | `[B, 128, 32, 23]` |
 | | Activation | ReLU | `[B, 128, 32, 23]` |
-| | Max Pooling | Kernel Size=$2\times2$, Stride=$2\times2$ | `[B, 128, 16, 11]` |
-| **Pooling** | Adaptive Avg | Forced Dimensional Spatial Collapse down to $4\times4$ | `[B, 128, 4, 4]` |
+| | Max Pooling | Kernel Size=2*2, Stride=2*2 | `[B, 128, 16, 11]` |
+| **Pooling** | Adaptive Avg | Forced Dimensional Spatial Collapse down to 4*4 | `[B, 128, 4, 4]` |
 | **Flatten** | Tensor Reshape | Reshape matrix grid into a 1D flat vector | `[B, 2048]` |
 | **Dense 1** | Fully Connected | Linear Input ($2048 \rightarrow 256$) + ReLU | `[B, 256]` |
 | | Regularization | Dropout Layer (Rate = $0.40$ to prevent overfitting) | `[B, 256]` |
